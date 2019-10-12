@@ -15,27 +15,6 @@ let final = [];
 
 for (property in recipe ) {
 	if (available.hasOwnProperty(property)) {
-	 final.push(Math.floor((available[property]/recipe[property])))
-
-	} if (!available.hasOwnProperty(property)) {
-		return 0
-	}
-}
-final = final.sort((a,b) => a < b);
-console.log(final)
-return final[0]
-}
-
-cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000})
-
-// 
-
-function cakes(recipe, available) {
-
-let final = [];
-
-for (property in recipe ) {
-	if (available.hasOwnProperty(property)) {
 		
 	 final.push(Math.floor((available[property]/recipe[property])))
 
