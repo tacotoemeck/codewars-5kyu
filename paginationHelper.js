@@ -22,7 +22,6 @@ PaginationHelper.prototype.pageCount = function() {
 PaginationHelper.prototype.pageItemCount = function(pageIndex) {
   let pageArray = [];
   let onPageCount = 0;
- console.log(pageIndex)
   for ( let i = 0; i < collection.length; i++) {
     onPageCount++;
     if ( onPageCount == this.itemsPerPage ) {
@@ -33,15 +32,17 @@ PaginationHelper.prototype.pageItemCount = function(pageIndex) {
         pageArray.push(onPageCount)
     }
   }
-  if ( pageIndex > pageArray.length) return -1;
-  else return pageArray[pageIndex]
+  if ( pageArray[pageIndex] == undefined ) return -1;
+  return pageArray[pageIndex]
 }
+
+
 
 // determines what page an item is on. Zero based indexes
 // this method should return -1 for itemIndex values that are out of range
 PaginationHelper.prototype.pageIndex = function(itemIndex) {
     if (this.itemCount() === 0 || itemIndex < 0 || itemIndex > this.itemCount()) return -1;
-if (itemIndex === 0 || itemIndex / this.itemsPerPage === 1) return 0;
+    if (itemIndex === 0 || itemIndex / this.itemsPerPage === 1) return 0;
 
 return Math.floor((itemIndex / this.itemsPerPage)); 
 }
